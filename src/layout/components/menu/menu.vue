@@ -8,12 +8,12 @@
       <template v-for="item in menuRouter" :key="item.path">        
         <a-menu-item v-if="!item.children">
           <i :class="`${'iconfont'} ${item.meta.icon}`" />
-          <router-link :to="item.path">{{ item.meta.title }}</router-link>
+          <router-link v-show="!collapsed" :to="item.path">{{ item.meta.title }}</router-link>
         </a-menu-item>
         <sub-menu v-else :key="item.path" :menuInfo="item">
           <template #subTitle>
             <i :class="`${'iconfont'} ${item.meta.icon}`" />
-            <span>{{ item.meta.title }}</span>
+            <span v-show="!collapsed">{{ item.meta.title }}</span>
           </template>
         </sub-menu>
       </template>
