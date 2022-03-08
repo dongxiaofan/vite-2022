@@ -1,0 +1,212 @@
+{
+  "id": "1298723",
+  "name": "HRO PC端",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "20946196",
+      "name": "流程中心",
+      "font_class": "liuchengzhongxin",
+      "unicode": "e733",
+      "unicode_decimal": 59187
+    },
+    {
+      "icon_id": "12911865",
+      "name": "附 件",
+      "font_class": "fujian",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "12103027",
+      "name": "已读",
+      "font_class": "yidu",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "446732",
+      "name": "邮件",
+      "font_class": "youjian1",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "4198413",
+      "name": "邮件",
+      "font_class": "youjian",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "11971563",
+      "name": "链接",
+      "font_class": "lianjie1",
+      "unicode": "e6cb",
+      "unicode_decimal": 59083
+    },
+    {
+      "icon_id": "11971256",
+      "name": "链接",
+      "font_class": "lianjie",
+      "unicode": "e6ca",
+      "unicode_decimal": 59082
+    },
+    {
+      "icon_id": "11969467",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e6c9",
+      "unicode_decimal": 59081
+    },
+    {
+      "icon_id": "11968311",
+      "name": "HRDC客户销售中心",
+      "font_class": "HRDCkehuxiaoshouzhongxin",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    },
+    {
+      "icon_id": "11968312",
+      "name": "HRDC客户交付中心",
+      "font_class": "HRDCkehujiaofuzhongxin",
+      "unicode": "e6c1",
+      "unicode_decimal": 59073
+    },
+    {
+      "icon_id": "11968313",
+      "name": "日常管理",
+      "font_class": "richangguanli",
+      "unicode": "e6c2",
+      "unicode_decimal": 59074
+    },
+    {
+      "icon_id": "11968314",
+      "name": "升级公告",
+      "font_class": "shengjigonggao",
+      "unicode": "e6c3",
+      "unicode_decimal": 59075
+    },
+    {
+      "icon_id": "11968315",
+      "name": "商务合同管理",
+      "font_class": "shangwuhetongguanli",
+      "unicode": "e6c4",
+      "unicode_decimal": 59076
+    },
+    {
+      "icon_id": "11968316",
+      "name": "档案管理",
+      "font_class": "danganguanli",
+      "unicode": "e6c5",
+      "unicode_decimal": 59077
+    },
+    {
+      "icon_id": "11968317",
+      "name": "工作台",
+      "font_class": "gongzuotai",
+      "unicode": "e6c6",
+      "unicode_decimal": 59078
+    },
+    {
+      "icon_id": "11968318",
+      "name": "V零工",
+      "font_class": "Vlinggong",
+      "unicode": "e6c7",
+      "unicode_decimal": 59079
+    },
+    {
+      "icon_id": "11968319",
+      "name": "系统设置",
+      "font_class": "xitongshezhi",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "554472",
+      "name": "向右箭头",
+      "font_class": "iconset0438",
+      "unicode": "e73d",
+      "unicode_decimal": 59197
+    },
+    {
+      "icon_id": "1019482",
+      "name": " new",
+      "font_class": "new",
+      "unicode": "e6e3",
+      "unicode_decimal": 59107
+    },
+    {
+      "icon_id": "9929035",
+      "name": "分享招聘",
+      "font_class": "fenxiangzhaopin",
+      "unicode": "e6a8",
+      "unicode_decimal": 59048
+    },
+    {
+      "icon_id": "9929493",
+      "name": "一体化灵活用工",
+      "font_class": "yitihualinghuoyonggong",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
+    },
+    {
+      "icon_id": "9929494",
+      "name": "组织与人才发展中心",
+      "font_class": "zuzhiyurencaifazhanzhongxin",
+      "unicode": "e6aa",
+      "unicode_decimal": 59050
+    },
+    {
+      "icon_id": "9918759",
+      "name": "账号(登录)",
+      "font_class": "zhanghaodenglu",
+      "unicode": "e6a6",
+      "unicode_decimal": 59046
+    },
+    {
+      "icon_id": "9918760",
+      "name": "密码(登录)",
+      "font_class": "mimadenglu",
+      "unicode": "e6a7",
+      "unicode_decimal": 59047
+    },
+    {
+      "icon_id": "9885561",
+      "name": "报表管理",
+      "font_class": "baobiaoguanli",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
+      "icon_id": "15367",
+      "name": "下三角形",
+      "font_class": "xiasanjiaoxing",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "9875870",
+      "name": "政策支持",
+      "font_class": "zhengcezhichi",
+      "unicode": "e69f",
+      "unicode_decimal": 59039
+    },
+    {
+      "icon_id": "9875874",
+      "name": "财务版块",
+      "font_class": "caiwubankuai",
+      "unicode": "e6a4",
+      "unicode_decimal": 59044
+    },
+    {
+      "icon_id": "9874895",
+      "name": "小三角",
+      "font_class": "xiaosanjiao",
+      "unicode": "e6a2",
+      "unicode_decimal": 59042
+    }
+  ]
+}
