@@ -2,16 +2,17 @@
   <div class="login-container">
     <div class="login-container-form">
       <h1 class="login-title mb-20">VITE 2022</h1>
-      <i class="iconfont icon-liuchengzhongxin" />
       <div class="login-form">
-        <a-form ref="loginFormRef" :model="loginForm" @keyup.enter="handleSubmit" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
-          <a-form-item name="userName" label="用户名" :rules="{required: true, message: '请输入用户名', trigger: 'change'}">
-            <a-input v-model:value="loginForm.userName" autocomplete="off" placeholder="请输入用户名" />
+        <a-form ref="loginFormRef" :model="loginFormData" @keyup.enter="handleSubmit" :label-col="{ span: 5 }" :wrapper-col="{ span: 24 }">
+          <a-form-item name="userName" label="用户名" :rules="[{required: true, message: '请输入用户名',trigger: 'change'}]">
+            <a-input v-model:value="loginFormData.userName" autocomplete="off" placeholder="请输入用户名" />
           </a-form-item>
-          <a-form-item name="password" label="密码">
-            <a-input v-model:value="loginForm.password" autocomplete="off" placeholder="请输入密码" />
+          <a-form-item name="password" label="密码" :rules="[{required: true, message: '请输入密码',trigger: 'change'}]">
+            <a-input v-model:value="loginFormData.password" autocomplete="off" placeholder="请输入密码" />
           </a-form-item>
-          <a-button @click="handleSubmit()">登陆</a-button>
+          <a-form-item>          
+            <a-button type="primary" block class="login_btn" @click="handleSubmit()">登陆</a-button>
+          </a-form-item>
         </a-form>
       </div>
     </div>
@@ -34,34 +35,34 @@ export default defineComponent({
   computed: {},
 
   setup() {
-    const loginForm = {
+    const loginFormData = reactive<any>({ // reactive 创建响应式对象
       userName: '',
       password: '',
-    }
+    })
     
     const loginFormRef = ref()
     const store = useStore()
     const router = useRouter()
 
-    // const rules = reactive({
-    //   userName: [{require: true, message: '请输入用户名', trigger: 'change'}],
-    //   password: [{require: true, message: '请输入密码', trigger: 'change'}],
-    // })
-
     const rules = {
-      userName: {require: true, message: '请输入用户名', trigger: 'change'}
+      userName: [{require: true, message: '请输入用户名', trigger: 'change'}],
+      password: [{require: true, message: '请输入密码', trigger: 'change'}],
     }
     
     const handleSubmit = ():void => {
       console.log('loginFormRef: ', loginFormRef)
       console.log('value: ', loginFormRef.value)
       loginFormRef.value.validate().then(() => {
-        console.log('点击了提交')
+        console.log('点击了提交 loginForm: ', loginFormData.userName)
+
+        const route = router.currentRoute.value
+        const url = route.query.redirect || '/demo1'
+        router.push(url as string)
       })
     }
 
     return {
-      loginForm,
+      loginFormData,
       loginFormRef,
       rules,
       handleSubmit
@@ -91,6 +92,9 @@ export default defineComponent({
             label{
               color: #515a6e;
             }
+          }
+          &:last-child{
+            border-bottom: transparent;
           }
           .ant-form-item-control-input{
             .ant-input{
