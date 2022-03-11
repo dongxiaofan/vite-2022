@@ -1,6 +1,16 @@
 import RouteView from '@/layout/routerView/index.vue'
 
 export const menuRouter = [
+  {
+    path: "/home",
+    name: "home",
+    redirect: "",
+    component: () => import('@/views/home/home.vue'),
+    meta: {
+      title: '工作台',
+      icon: "icon-gongzuotai",
+    }
+  },
   { 
     path: '/demo',
     name: 'demo',

@@ -21,6 +21,7 @@ export const basicsRouter = [
   { 
     path: '/',
     name: 'basics',
+    redirect: "/home",
     component: Layout,
     children: [...menuRouter]
   },

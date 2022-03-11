@@ -61,7 +61,7 @@ export default defineComponent({
           console.log('🍚 login handleSubmit resp: ', resp)
           if (resp.success) {
             const route = router.currentRoute.value
-            const url = route.query.redirect || '/demo1'
+            const url = route.query.redirect || '/home'
             router.push(url as string)
           } else {
             message.error(resp.message)
