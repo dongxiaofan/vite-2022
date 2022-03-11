@@ -1,16 +1,6 @@
-import Layout from '@/layout'
+import RouteView from '@/layout/routerView/index.vue'
 
 export const menuRouter = [
-  { 
-    path: '/login',
-    name: 'login',
-    meta: {
-      title: '登录',
-      hideInMenu: true,
-      icon: 'icon-zhanghaodenglu'
-    },
-    component: () => import('/src/views/login/login.vue')
-  },
   { 
     path: '/demo',
     name: 'demo',
@@ -20,7 +10,7 @@ export const menuRouter = [
       hideInMenu: true,
       icon: 'icon-yidu'
     },
-    component: Layout,
+    component: RouteView,
     children: [
       { 
         path: '/demo1',

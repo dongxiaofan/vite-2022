@@ -8,7 +8,7 @@
             <a-input v-model:value="loginFormData.userName" autocomplete="off" placeholder="请输入用户名" />
           </a-form-item>
           <a-form-item name="password" label="密码" :rules="[{required: true, message: '请输入密码',trigger: 'change'}]">
-            <a-input v-model:value="loginFormData.password" autocomplete="off" placeholder="请输入密码" />
+            <a-input v-model:value="loginFormData.password" autocomplete="off" placeholder="请输入密码" type="password" />
           </a-form-item>
           <a-form-item>          
             <a-button type="primary" block class="login_btn" @click="handleSubmit()">登陆</a-button>
