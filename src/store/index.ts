@@ -1,9 +1,11 @@
 import { createStore } from 'vuex'
 import menu, { menuState } from './modules/menu'
+import user, { UserState } from './modules/user'
 
 const store = createStore({
   modules: {
-    menu
+    menu,
+    user,
   }
 })
 

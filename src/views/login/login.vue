@@ -52,20 +52,34 @@ export default defineComponent({
       password: [{require: true, message: '请输入密码', trigger: 'change'}],
     }
     
-    const handleSubmit = ():void => {
-      console.log('loginFormRef: ', loginFormRef)
-      console.log('value: ', loginFormRef.value)
+    // const handleSubmit = ():void => {
+    //   console.log('loginFormRef: ', loginFormRef)
+    //   console.log('value: ', loginFormRef.value)
+    //   loginFormRef.value.validate().then(() => {
+    //     console.log('点击了提交 loginForm: ', loginFormData.userName)        
+    //     login(loginFormData).then((resp:any) => {
+    //       console.log('🍚 login handleSubmit resp: ', resp)
+    //       if (resp.success) {
+    //         const route = router.currentRoute.value
+    //         const url = route.query.redirect || '/home'
+    //         router.push(url as string)
+    //       } else {
+    //         message.error(resp.message)
+    //       }
+    //     })
+    //   })
+    // }
+
+    const handleSubmit = () => {
       loginFormRef.value.validate().then(() => {
-        console.log('点击了提交 loginForm: ', loginFormData.userName)        
-        login(loginFormData).then((resp:any) => {
-          console.log('🍚 login handleSubmit resp: ', resp)
-          if (resp.success) {
-            const route = router.currentRoute.value
-            const url = route.query.redirect || '/home'
-            router.push(url as string)
-          } else {
-            message.error(resp.message)
-          }
+        store.dispatch('user/login', loginFormData).then(resp => {
+          console.log('login page resp: ', resp)
+          const route = router.currentRoute.value
+          const url = route.query.redirect || '/home'
+          router.push(url as string)
+        }).catch(err => {
+          console.log('login page err: ', err)
+          message.error('账号或密码错误！')
         })
       })
     }

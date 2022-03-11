@@ -17,9 +17,29 @@
   padding: 0 16px !important;
   background: #fff !important;
 }
-.handle_collapsed {
-  font-size: 22px;
-  height: 46px;
-  line-height: 64px;
-  cursor: pointer;
+.header-handle-icon {
+  float: left;
+  .handle_collapsed {
+    font-size: 22px;
+    height: 46px;
+    line-height: 64px;
+    cursor: pointer;
+  }
+}
+.header-avatar-all {
+  float: right;
+  height: 64px;
+  .ant-avatar {
+    float: left;
+    margin: 16px 10px;
+  }
+  .header__avatar-name {
+    float: left;
+    color: #515a61;
+  }
+  .ant-dropdown-content {
+    .ant-dropdown-menu-item {
+      text-align: center;
+    }
+  }
 }
