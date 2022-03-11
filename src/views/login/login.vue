@@ -20,10 +20,13 @@
 </template>
 
 <script lang="ts">
+import Cookies from 'js-cookie'
 import { PlayCircleFilled } from "@ant-design/icons-vue";
 import { defineComponent, reactive, ref, UnwrapRef, onMounted } from "vue"
 import { useRouter } from "vue-router"
 import { useStore } from "vuex"
+import { login } from '@/api/login.api.ts';
+import { message } from "ant-design-vue";
 
 export default defineComponent({
   name: 'login',
@@ -36,8 +39,8 @@ export default defineComponent({
 
   setup() {
     const loginFormData = reactive<any>({ // reactive 创建响应式对象
-      userName: '',
-      password: '',
+      userName: 'admin',
+      password: 'mmkj201509',
     })
     
     const loginFormRef = ref()
@@ -53,11 +56,17 @@ export default defineComponent({
       console.log('loginFormRef: ', loginFormRef)
       console.log('value: ', loginFormRef.value)
       loginFormRef.value.validate().then(() => {
-        console.log('点击了提交 loginForm: ', loginFormData.userName)
-
-        const route = router.currentRoute.value
-        const url = route.query.redirect || '/demo1'
-        router.push(url as string)
+        console.log('点击了提交 loginForm: ', loginFormData.userName)        
+        login(loginFormData).then((resp:any) => {
+          console.log('🍚 login handleSubmit resp: ', resp)
+          if (resp.success) {
+            const route = router.currentRoute.value
+            const url = route.query.redirect || '/demo1'
+            router.push(url as string)
+          } else {
+            message.error(resp.message)
+          }
+        })
       })
     }
 
