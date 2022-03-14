@@ -13,14 +13,9 @@ export const basicsRouter = [
     },
     component: () => import('/src/views/login/login.vue')
   },
-  {
-    path: '/layout',
-    name: 'layout',
-    component: () => import('/src/layout/layout.vue')
-  },
   { 
     path: '/',
-    name: 'basics',
+    name: 'menus',
     redirect: "/home",
     component: Layout,
     children: [...menuRouter]

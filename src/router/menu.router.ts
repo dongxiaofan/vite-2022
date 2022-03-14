@@ -27,7 +27,8 @@ export const menuRouter = [
         name: 'demo1',
         meta: {
           title: '例-1',
-          icon: 'icon-HRDCkehuxiaoshouzhongxin'
+          icon: 'icon-HRDCkehuxiaoshouzhongxin',
+          access: '_home',
         },
         component: () => import('/src/views/demo/demo1.vue')
       },
@@ -36,7 +37,8 @@ export const menuRouter = [
         name: 'demo2',
         meta: {
           title: '例-2',
-          icon: 'icon-HRDCkehujiaofuzhongxin'
+          icon: 'icon-HRDCkehujiaofuzhongxin',
+          access: 'aaa',
         },
         component: () => import('/src/views/demo/demo2.vue')
       }
