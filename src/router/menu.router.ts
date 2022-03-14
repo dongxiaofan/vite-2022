@@ -9,7 +9,6 @@ export const menuRouter = [
     meta: {
       title: '工作台',
       icon: "icon-gongzuotai",
-      access: '_home',
     }
   },
   { 

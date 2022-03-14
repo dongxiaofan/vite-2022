@@ -1,7 +1,7 @@
 import Layout from '@/layout'
+import RouteView from '@/layout/routerView/index.vue'
 import { menuRouter } from './menu.router'
 import { errorRouter } from './error.router'
-import RouteView from '@/layout/routerView/index.vue'
 
 export const basicsRouter = [
   { 
@@ -16,7 +16,7 @@ export const basicsRouter = [
   },
   { 
     path: '/',
-    name: 'menus',
+    name: 'menu',
     redirect: "/home",
     component: Layout,
     children: [...menuRouter]
@@ -30,4 +30,4 @@ export const basicsRouter = [
 ]
 
 // 白名单
-export const whiteList = ['login', '/403', '/404', '/500']
+export const whiteList = ['/login', '/403', '/404', '/500']

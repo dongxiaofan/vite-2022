@@ -55,9 +55,8 @@ export default defineComponent({
     const handleSubmit = () => {
       loginFormRef.value.validate().then(() => {
         store.dispatch('user/login', loginFormData).then(resp => {
-          console.log('login page resp: ', resp)
           const route = router.currentRoute.value
-          const url = route.query.redirect || '/home'
+          const url = route.query?.redirect || '/'
           router.push(url as string)
         }).catch(err => {
           console.log('login page err: ', err)

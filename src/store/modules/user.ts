@@ -65,14 +65,18 @@ const user = {
       state.userInfo = obj
     },
 
+    setMenuCodes (state: UserState, arr: any) {
+      state.menuCodes = arr.map((item: any) => item.code)
+    },
+
     // 用户退出登陆
     logout (state: UserState) {
-      console.log('store user.ts 用户退出登录')
       Cookies.remove('token');
-      storage.remove('userInfo')
+      storage.clearAll()
       // 为了重新加载用户信息及路由组
       state.name = ''
       state.avatar = ''
+      state.menuCodes = []
     }
   },
 
@@ -81,11 +85,11 @@ const user = {
     login (context: ActionContext<UserState, UserState>, params: LoginFrom) {
       return new Promise((resolve, reject) => {
         login(params).then((resp:any) => {
-          console.log('store user.ts login resp: ', resp)          
           const data:any = resp.data
           storage.set("userInfo", data)
           context.commit('setName', data.name)
           context.commit('setToken', data.access_token)
+          context.commit('setMenuCodes', data.menus || [])
           resolve(data)
         }).catch((err:any) => {
           reject(err)

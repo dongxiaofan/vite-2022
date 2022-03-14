@@ -9,23 +9,21 @@ import { whiteList } from './basics.router'
 const loginPath = '/login'
 const notAuthority = '/403' // 没有权限
 const notFound = '/404' // 没找到页面
-const menuCodes = store.getters["user/getMenuCodes"]
 
 export const permission = (router: Router) => {
   router.beforeEach((to, from, next) => {
-    NProgress.start()
+    const menuCodes = store.getters["user/getMenuCodes"]
     const currentMenu = storage.get('userInfo')?.menus.find((_menu_item: any) => {
       return _menu_item.code === to.meta.access
     })
-    console.log('🐅 currentMenu ', currentMenu)
-    console.log('🐅 router.hasRoute() ', router.hasRoute(to.name || ''))
+    NProgress.start()
     if (Cookies.get('token') && storage.get('userInfo')) {
       if (!router.hasRoute(to.name || '')) {
         next({ path: notFound, replace: true })
-      } else if (to.meta.access && !menuCodes.includes(to.meta.access as any)) {
-        next({ path: notAuthority, replace: true })
-      } else {
+      } else if (!to.meta.access || menuCodes?.includes(to.meta.access as any)) {
         next()
+      } else {
+        next({ path: notAuthority, replace: true })
       }
     } else {
       if (whiteList.includes(to.path)) {
