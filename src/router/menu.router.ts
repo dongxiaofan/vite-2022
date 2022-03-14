@@ -9,6 +9,7 @@ export const menuRouter = [
     meta: {
       title: '工作台',
       icon: "icon-gongzuotai",
+      access: '_home',
     }
   },
   { 
@@ -18,7 +19,8 @@ export const menuRouter = [
       title: '范例',
       keepAlive: true,
       hideInMenu: true,
-      icon: 'icon-yidu'
+      icon: 'icon-yidu',
+      access: '_home',
     },
     component: RouteView,
     children: [

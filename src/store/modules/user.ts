@@ -14,6 +14,7 @@ export type UserState = {
   name: string,
   avatar: string,
   userInfo: object,
+  menuCodes: string[],
 }
 
 
@@ -25,12 +26,21 @@ const state = {
   // 头像
   avatar: '',
   // 用户信息
-  userInfo: {}
+  userInfo: {},
+  // 角色(鉴权)
+  menuCodes: storage.get("userInfo")?.menus.map((item: any) => item.code),
 }
 
 const user = {
   namespaced: true,
   state,
+
+  getters: {
+    getMenuCodes: (state:any) => {
+      return state.menuCodes
+    }
+  },
+  
   mutations: {
     // 设置token
     setToken (state: UserState, token: string) {
@@ -43,6 +53,7 @@ const user = {
       state.name = name
       storage.set('userName', name)
     },
+
     // 设置头像
     setAvatar (state: UserState, avatar: string) {
       state.avatar = avatar

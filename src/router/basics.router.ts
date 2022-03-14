@@ -27,3 +27,6 @@ export const basicsRouter = [
     children: [...errorRouter]
   }
 ]
+
+// 白名单
+export const whiteList = ['login', '/403', '/404', '/500']
