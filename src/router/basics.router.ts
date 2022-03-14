@@ -1,6 +1,7 @@
 import Layout from '@/layout'
 import { menuRouter } from './menu.router'
 import { errorRouter } from './error.router'
+import RouteView from '@/layout/routerView/index.vue'
 
 export const basicsRouter = [
   { 
@@ -23,7 +24,7 @@ export const basicsRouter = [
   { 
     path: '/error',
     name: 'error',
-    component: Layout,
+    component: RouteView,
     children: [...errorRouter]
   }
 ]

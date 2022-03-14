@@ -38,7 +38,7 @@ export const menuRouter = [
         path: '/demo2',
         name: 'demo2',
         meta: {
-          title: '例-2',
+          title: '例-2(无权限)',
           icon: 'icon-HRDCkehujiaofuzhongxin',
           access: 'aaa',
         },
