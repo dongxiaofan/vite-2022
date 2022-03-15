@@ -1,27 +1,21 @@
 <template>
   <a-result status="500" title="500" sub-title="对不起，服务器内部错误.">
     <template #extra>
-      <a-button type="primary" @click="goHome">返回主页</a-button>
+      <BackBtnGroup></BackBtnGroup>
     </template>
   </a-result>
 </template>
+
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useRouter } from 'vue-router'
+import BackBtnGroup from './components/back-btn-group.vue'
 export default defineComponent({
   name: '500',
-  setup() {
-    const router = useRouter()
-    const goBack = () => {
-      router.go(-1)
-    }
-    const goHome = () => {
-      router.replace('home')
-    }
-    return {
-      goBack,
-      goHome
-    }
+
+  components: {
+    BackBtnGroup,
   },
+
+  setup() {},
 })
 </script>
