@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive, ref } from "vue";
+import { defineComponent, onMounted, onUnmounted, reactive, ref } from "vue";
 import { useRouter } from 'vue-router'
 export default defineComponent({
   name: 'back-btn-group',
@@ -18,10 +18,11 @@ export default defineComponent({
       router.replace('home')
     }
 
-    let timer:any = null
+    let timer: any;
     const second = ref(5);
 
     const countdown = () => {
+      clearInterval(timer);
       timer = setInterval(() => {
         if (second.value === 0) goBack()
         else second.value--
@@ -31,6 +32,10 @@ export default defineComponent({
     onMounted(() => {
       countdown()
     })
+
+    onUnmounted(() => {
+      clearInterval(timer);
+    });
 
     return {
       goBack,

@@ -16,6 +16,9 @@ const state = {
 const menu = {
   namespaced: true,
   state,
+
+  getters: {},
+  
   mutations: {
     setMenu (state: menuState, router: RouterTable) {
       state.menuRouter = router
@@ -23,7 +26,9 @@ const menu = {
     setCollapsed (state: menuState, collapsed: boolean) {
       state.collapsed = collapsed
     }
-  }
+  },
+
+  actions: {}
 }
 
 export default menu

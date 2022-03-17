@@ -4,13 +4,14 @@
     <SideMenu :collapsed="collapsed"></SideMenu>
     <a-layout>
       <!-- header -->
-      <Header></Header>
+      <Header />
       <a-layout-content
         :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
       >
         <p>Content 路由匹配到的组件将渲染在这里↓</p>
+        <Tabs />
         <!-- 路由匹配到的组件将渲染在这里 -->
-        <router-view></router-view>
+        <!-- <router-view></router-view> -->
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -21,13 +22,15 @@ import { mapState, useStore } from 'vuex'
 import { defineComponent, computed } from 'vue'
 import SideMenu from './components/menu/menu.vue'
 import Header from './components/header/header.vue'
+import Tabs from './components/tabs/tabs.vue'
 
 export default defineComponent({
   props: { },
 
   components: {
     SideMenu,
-    Header
+    Header,
+    Tabs,
   },
 
   setup() {
