@@ -42,7 +42,27 @@ export const menuRouter = [
           access: 'aaa',
         },
         component: () => import('/src/views/demo/demo2.vue')
-      }
+      },
+      { 
+        path: '/demo3',
+        name: 'demo3',
+        meta: {
+          title: '例-3',
+          icon: 'icon-HRDCkehuxiaoshouzhongxin',
+          access: '_home',
+        },
+        component: () => import('/src/views/demo/demo1.vue')
+      },
+      { 
+        path: '/demo4',
+        name: 'demo4',
+        meta: {
+          title: '例-4',
+          icon: 'icon-HRDCkehuxiaoshouzhongxin',
+          access: '_home',
+        },
+        component: () => import('/src/views/demo/demo1.vue')
+      },
     ]
   }
 ]

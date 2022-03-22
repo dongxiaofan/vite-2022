@@ -65,6 +65,9 @@ export default defineComponent({
     // tab删除
     const delTab = (targetKey: string, action: string) => {
       console.log('tab删除 targetKey: ', targetKey, ', action: ', action)
+      if (action == 'remove') {
+        store.commit('tabs/delTabList', targetKey)
+      }
     }
 
     // tab点击

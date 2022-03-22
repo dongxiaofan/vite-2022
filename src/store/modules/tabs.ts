@@ -37,6 +37,32 @@ const tabs = {
         arr.push(item)
         storage.set('tabList', arr)
       }
+    },
+
+    // 删除
+    delTabList (state: TabState, key: string) {
+      let arr = state.tabList
+      const route = router.currentRoute.value
+
+      if (!arr.length) {
+        return
+      }
+
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i]['path'] === key) {
+          if (route.path === key) {
+            if (arr.length-1 === i) { // 点的是最右的tab
+              router.push(arr[i-1]['path'])
+            } else {
+              router.push(arr[i+1]['path'])
+            }
+          }
+
+          arr.splice(i, 1);
+          storage.set('tabList', arr);
+          break;
+        }
+      }
     }
   },
 
