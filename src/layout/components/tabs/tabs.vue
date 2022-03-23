@@ -5,16 +5,15 @@
     hide-add
     @tabClick="handleTabsChange"
     @edit="delTab"
+    class="layout-tabs xxxxxxxxxxxxxxxx"
   >
-    <a-tab-pane v-for="(item, index) in tabList" :key="item.path" :tab="item.title">
-      <p>🦁 {{ item.title }} 🦁</p>
-    </a-tab-pane>
+    <a-tab-pane v-for="item in tabList" :key="item.path" :tab="item.title"></a-tab-pane>
   </a-tabs>
-
-  <!-- <div v-for="(item) in tabList" :key="item.path"> {{ item.title }}</div> -->
   
   <!-- 路由匹配到的组件将渲染在这里 -->
-  <RouteView />
+  <div class="main__container">
+    <RouteView></RouteView>
+  </div>
 </template>
 
 <script lang="ts">
@@ -24,7 +23,6 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue'
 import RouteView from '../../routerView/index.vue'
 import { TabItem } from '@/store/modules/tabs'
 import { whiteList } from '@/router/basics.router'
-// import RouteView from '@/layout/routerView/routerView.vue'
 import { useRoute, useRouter, RouteLocationNormalizedLoaded } from 'vue-router'
 
 export default defineComponent({

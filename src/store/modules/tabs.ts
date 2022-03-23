@@ -7,11 +7,11 @@ export interface TabItem {
   name?: string
 }
 
-export type TabState = {
+export type TabsState = {
   tabList: TabItem[]
 }
 
-const state: TabState = {
+const state: TabsState = {
   tabList: storage.get('tabList') || []
 }
 
@@ -23,13 +23,13 @@ const tabs = {
 
   mutations: {
     // 重置
-    resetTabList (state: TabState) {
+    resetTabList (state: TabsState) {
       state.tabList = []
       storage.set('tabList', [])
     },
 
     // 添加
-    setTabList (state: TabState, item: TabItem) {
+    setTabList (state: TabsState, item: TabItem) {
       console.log('添加 item: ', item)
       let arr = state.tabList
       let isExisting = arr.find(_i => {return _i.path == item.path})
@@ -40,7 +40,7 @@ const tabs = {
     },
 
     // 删除
-    delTabList (state: TabState, key: string) {
+    delTabList (state: TabsState, key: string) {
       let arr = state.tabList
       const route = router.currentRoute.value
 

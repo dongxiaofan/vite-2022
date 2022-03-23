@@ -1,22 +1,21 @@
 <template>
-  <div>
-    <router-view v-slot="{ Component }">
-      <template v-if="Component">
-        <transition mode="out-in">
-          <suspense>
-            <component :is="Component" />
-            <template #fallback>
-              <div> Loading... </div>
-            </template>
-          </suspense>
-        </transition>
-      </template>
-    </router-view>
-  </div>
+  <router-view v-slot="{ Component }">
+    <keep-alive :include="[...keepalive, ...['laoutView']]">
+      <component :is="Component"></component>
+    </keep-alive>
+  </router-view>
 </template>
 
 <script lang="ts">
-  export default {
-    name: 'LayoutParentView',
-  };
+import { mapState } from 'vuex';
+
+export default {
+  name: 'LayoutParentView',
+
+  computed: {
+    ...mapState({
+      keepalive: (state: any) => state.global.keepalive as []
+    })
+  },
+};
 </script>
