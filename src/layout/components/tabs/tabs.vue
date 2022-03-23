@@ -5,7 +5,8 @@
     hide-add
     @tabClick="handleTabsChange"
     @edit="delTab"
-    class="layout-tabs xxxxxxxxxxxxxxxx"
+    :animated="false"
+    class="layout-tabs"
   >
     <a-tab-pane v-for="item in tabList" :key="item.path" :tab="item.title"></a-tab-pane>
   </a-tabs>

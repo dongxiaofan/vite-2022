@@ -55,41 +55,45 @@
 .layout-tabs {
   .ant-tabs-nav {
     background: #ffffff;
-    box-shadow: 0px 3px 5px 0px rgba(0, 108, 255, 0.05);
     .ant-tabs-nav-wrap {
-      overflow: hidden;
+      overflow: unset !important;
+      box-shadow: 0px 3px 5px 0px rgba(0, 108, 255, 0.05);
       .ant-tabs-nav-list {
         .ant-tabs-tab {
           height: 32px;
           padding: 0px 16px;
-          // border: none;
-          border-top: none;
-          border-bottom: none;
+          border: none;
           background-color: #fff;
           color: #666;
           &.ant-tabs-tab-active {
             background-color: #f8f9fc;
+            box-shadow: 0px 5px 0px #f8f9fc;
             position: relative;
-            // margin-left: 34px;
-            // margin-right: 34px;
-            // &::before {
-            //   content: '';
-            //   width: 0;
-            //   height: 0;
-            //   border-bottom: 32px solid #f8f9fc;
-            //   border-left: 18px solid transparent;
-            //   position: absolute;
-            //   left: -18px;
-            // }
-            // &::after {
-            //   content: '';
-            //   width: 0;
-            //   height: 0;
-            //   border-bottom: 32px solid #f8f9fc;
-            //   border-right: 18px solid transparent;
-            //   position: absolute;
-            //   right: -18px;
-            // }
+            margin-left: 18px;
+            margin-right: 18px;
+            &::before {
+              content: '';
+              width: 0;
+              height: 0;
+              border-bottom: 32px solid #f8f9fc;
+              border-left: 18px solid transparent;
+              position: absolute;
+              left: -18px;
+              box-shadow: 0px 5px 0px #f8f9fc;
+            }
+            &::after {
+              content: '';
+              width: 0;
+              height: 0;
+              border-bottom: 32px solid #f8f9fc;
+              border-right: 18px solid transparent;
+              position: absolute;
+              right: -18px;
+              box-shadow: 0px 5px 0px #f8f9fc;
+            }
+            .ant-tabs-tab-btn {
+              color: #000;
+            }
           }
         }
       }
