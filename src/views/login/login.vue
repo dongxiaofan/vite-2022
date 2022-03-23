@@ -75,7 +75,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .login-container{
     width: 100%;
     height: 100vh;
