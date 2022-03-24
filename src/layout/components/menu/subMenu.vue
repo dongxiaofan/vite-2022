@@ -1,5 +1,5 @@
 <template>
-  <a-sub-menu :key="menuInfo.key" v-bind="$props">
+  <a-sub-menu :key="menuInfo.path" v-bind="$props">
     <template #title>
       <slot name="subTitle"></slot>
     </template>
@@ -23,7 +23,7 @@ export default defineComponent({
     menuInfo: {
       type: Object,
       default: () => ({}),
-    }
+    },
   },
 
   setup(props:any) {

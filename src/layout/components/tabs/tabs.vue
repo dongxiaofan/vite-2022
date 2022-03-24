@@ -46,6 +46,16 @@ export default defineComponent({
     const router = useRouter()
     const { state } = useStore()
 
+    watch(route, to => {
+      addTab(to)
+      activeKey.value = to.path
+    })
+
+    onBeforeMount(() => {
+      addTab(route)
+      activeKey.value = route.path
+    })
+
     // 添加tab
     const addTab = (data:any) => {
       if (whiteList.includes(data.path)) {
@@ -79,11 +89,6 @@ export default defineComponent({
         router.push(toRoute)
       }
     }
-
-    watch(route, to => {
-      addTab(to)
-      activeKey.value = to.path
-    })
 
     return {
       activeKey,
