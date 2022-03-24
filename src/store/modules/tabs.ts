@@ -30,7 +30,6 @@ const tabs = {
 
     // 添加
     setTabList (state: TabsState, item: TabItem) {
-      console.log('添加 item: ', item)
       let arr = state.tabList
       let isExisting = arr.find(_i => {return _i.path == item.path})
       if (!isExisting) {
