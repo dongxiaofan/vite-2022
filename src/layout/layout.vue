@@ -1,37 +1,21 @@
 <template>
   <a-layout class="layout">
-    <SideMenu :collapsed="collapsed"></SideMenu>
+    <side-menu :collapsed="collapsed"></side-menu>
     <a-layout>
-      <Header />
-      <a-layout-content><Tabs /></a-layout-content>
+      <layout-header />
+      <a-layout-content><layout-tabs /></a-layout-content>
     </a-layout>
   </a-layout>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { mapState, useStore } from 'vuex'
-import { defineComponent, computed } from 'vue'
+import { computed } from 'vue'
 import SideMenu from './components/menu/menu.vue'
-import Header from './components/header/header.vue'
-import Tabs from './components/tabs/tabs.vue'
+import LayoutHeader from './components/header/layoutHeader.vue'
+import LayoutTabs from './components/tabs/layoutTabs.vue'
 
-export default defineComponent({
-  props: { },
+const { state, commit } = useStore();
+const collapsed = computed(() => state.menu.collapsed);
 
-  components: {
-    SideMenu,
-    Header,
-    Tabs,
-  },
-
-  setup() {
-    const { state, commit } = useStore();
-
-    const collapsed = computed(() => state.menu.collapsed);
-
-    return {
-      collapsed
-    }
-  },
-})
 </script>

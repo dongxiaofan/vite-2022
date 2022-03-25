@@ -6,16 +6,11 @@
   </router-view>
 </template>
 
-<script lang="ts">
-import { mapState } from 'vuex';
+<script lang="ts" setup>
+import { mapState, useStore } from 'vuex';
+import { computed } from 'vue'
 
-export default {
-  name: 'LayoutParentView',
+const { state, commit } = useStore();
+const keepalive = computed(() => state.global.keepalive as [])
 
-  computed: {
-    ...mapState({
-      keepalive: (state: any) => state.global.keepalive as []
-    })
-  },
-};
 </script>

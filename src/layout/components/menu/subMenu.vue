@@ -13,22 +13,15 @@
   </a-sub-menu>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+// import { defineProps } from 'vue'
 import { Menu } from 'ant-design-vue';
 
-export default defineComponent({
-  props: {
-    ...Menu.SubMenu.props,
-    menuInfo: {
-      type: Object,
-      default: () => ({}),
-    },
-  },
-
-  setup(props:any) {
-    return {
-    }
+defineProps({
+  ...Menu.SubMenu.props,
+  menuInfo: {
+    type: Object,
+    default: () => ({}),
   },
 })
 </script>
