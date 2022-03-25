@@ -19,60 +19,37 @@
   </div>
 </template>
 
-<script lang="ts">
-import Cookies from 'js-cookie'
-import { PlayCircleFilled } from "@ant-design/icons-vue";
-import { defineComponent, reactive, ref, UnwrapRef, onMounted } from "vue"
+<script lang="ts" setup>
+import { reactive, ref } from "vue"
 import { useRouter } from "vue-router"
 import { useStore } from "vuex"
-import { login } from '@/api/login.api.ts';
-import { message } from "ant-design-vue";
 
-export default defineComponent({
-  name: 'login',
-
-  components: {
-    PlayCircleFilled,
-  },
-
-  computed: {},
-
-  setup() {
-    const loginFormData = reactive<any>({ // reactive 创建响应式对象
-      userName: 'admin',
-      password: 'mmkj201509',
-    })
-    
-    const loginFormRef = ref()
-    const store = useStore()
-    const router = useRouter()
-
-    const rules = {
-      userName: [{require: true, message: '请输入用户名', trigger: 'change'}],
-      password: [{require: true, message: '请输入密码', trigger: 'change'}],
-    }
-
-    const handleSubmit = () => {
-      loginFormRef.value.validate().then(() => {
-        store.dispatch('user/login', loginFormData).then(resp => {
-          const route = router.currentRoute.value
-          const url = route.query?.redirect || '/'
-          router.push(url as string)
-        }).catch(err => {
-          console.log('login page err: ', err)
-          // message.error('账号或密码错误！')
-        })
-      })
-    }
-
-    return {
-      loginFormData,
-      loginFormRef,
-      rules,
-      handleSubmit
-    }
-  }
+const loginFormData = reactive<any>({ // reactive 创建响应式对象
+  userName: 'admin',
+  password: 'mmkj201509',
 })
+
+const loginFormRef = ref()
+const store = useStore()
+const router = useRouter()
+
+const rules = {
+  userName: [{require: true, message: '请输入用户名', trigger: 'change'}],
+  password: [{require: true, message: '请输入密码', trigger: 'change'}],
+}
+
+const handleSubmit = () => {
+  loginFormRef.value.validate().then(() => {
+    store.dispatch('user/login', loginFormData).then(resp => {
+      const route = router.currentRoute.value
+      const url = route.query?.redirect || '/'
+      router.push(url as string)
+    }).catch(err => {
+      console.log('login page err: ', err)
+    })
+  })
+}
+
 </script>
 
 <style lang="scss">

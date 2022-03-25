@@ -3,45 +3,38 @@
   <a-button type="primary" ghost @click="goBack">返回上一页({{ second }}s)</a-button>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted, onUnmounted, reactive, ref } from "vue";
+<script lang="ts" setup>
+import { onMounted, onUnmounted, ref } from "vue";
 import { useRouter } from 'vue-router'
-export default defineComponent({
-  name: 'back-btn-group',
 
-  setup() {
-    const router = useRouter()
-    const goBack = () => {
-      router.go(-1)
-    }
-    const goHome = () => {
-      router.replace('home')
-    }
+const router = useRouter()
 
-    let timer: any;
-    const second = ref(5);
+// 返回上一页
+const goBack = () => {
+  router.go(-1)
+}
 
-    const countdown = () => {
-      clearInterval(timer);
-      timer = setInterval(() => {
-        if (second.value === 0) goBack()
-        else second.value--
-      }, 1000)
-    }
+// 返回首页
+const goHome = () => {
+  router.replace('home')
+}
 
-    onMounted(() => {
-      countdown()
-    })
+// 定时器
+let timer: any;
+const second = ref(5);
+const countdown = () => {
+  clearInterval(timer);
+  timer = setInterval(() => {
+    if (second.value === 0) goBack()
+    else second.value--
+  }, 1000)
+}
 
-    onUnmounted(() => {
-      clearInterval(timer);
-    });
-
-    return {
-      goBack,
-      goHome,
-      second
-    }
-  },
+onMounted(() => {
+  countdown()
 })
+
+onUnmounted(() => {
+  clearInterval(timer);
+});
 </script>
