@@ -6,7 +6,7 @@
     </div>
     <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys" v-model:openKeys="openKeys" @openChange="onOpenChange">
       <template v-for="item in menuRouter">        
-        <a-menu-item v-if="!item.children"  :key="item.path">
+        <a-menu-item v-if="!item.children && (!item.meta.access || state.user.menuCodes.includes(item.meta.access))"  :key="item.path">
           <i :class="`${'iconfont'} ${item.meta.icon}`" />
           <router-link v-show="!collapsed" :to="item.path">{{ item.meta.title }}</router-link>
         </a-menu-item>
