@@ -12,8 +12,10 @@
   </a-tabs>
   
   <!-- 路由匹配到的组件将渲染在这里 -->
-  <div class="main__container">
-    <RouteView></RouteView>
+  <div class="pl-16 pr-16">
+    <div class="main__container">
+      <RouteView></RouteView>
+    </div>
   </div>
 </template>
 
