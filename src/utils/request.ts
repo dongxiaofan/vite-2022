@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
-// import { message as $message } from 'ant-design-vue';
+import Cookies from 'js-cookie'
 import { notification, message  } from 'ant-design-vue'
 
 export interface RequestOptions {
@@ -57,11 +57,11 @@ const errorHandler = (error: AxiosError) => {
  * @param { Object } config 配置参数
  */
 axios.interceptors.request.use(
-  (config) => {
+  (config: AxiosRequestConfig): AxiosRequestConfig => {
     console.log('🌳 config: ', config)
+    config.headers['Authorization'] = 'Bearer ' + Cookies.get('token') || ''
     return config
-  },
-  errorHandler
+  }, errorHandler
 )
 
 
