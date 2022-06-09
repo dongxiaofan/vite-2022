@@ -6,18 +6,18 @@ export const theadObj = {
     key: 'name',
     ellipsis: true,
   },
-  age: {
+  serverName: {
     title: '年龄',
     width: 150,
-    dataIndex: 'age',
-    key: 'age',
+    dataIndex: 'serverName',
+    key: 'serverName',
     ellipsis: true,
   },
-  address: {
+  status: {
     title: '地址',
     width: 150,
-    dataIndex: 'address',
-    key: 'address',
+    dataIndex: 'status',
+    key: 'status',
     ellipsis: true,
   },
   action: {

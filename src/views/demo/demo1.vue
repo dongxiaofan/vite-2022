@@ -1,7 +1,7 @@
 <template>
   <div class="clearfix">
     <div class="pall-24 bg-white">
-      <a-table :row-selection="rowSelection" :columns="tableColumns" :data-source="data">
+      <a-table :row-selection="rowSelection" :columns="tableColumns" :data-source="dataSource.data">
         <template #bodyCell="{ column, record }">
           <template v-if="column.dataIndex === 'action'">
             <a-tag>{{record.name}}</a-tag>
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, reactive } from 'vue'
 import common from '@/libs/common';
 import { theadObj } from './tableHead.js'
 import { getList } from './service';
@@ -33,13 +33,18 @@ const rowSelection = computed(() => {
   };
 })
 
-const columns = ['name', 'age', 'address', 'action']
+const columns = ['name', 'serverName', 'status', 'action']
 const tableColumns = common.getTableColumns(columns, theadObj)
-let queryData = ref<any>([]);
+const dataSource = reactive({
+  data: [] as any[],
+  total: 0 as Number,
+})
 
 const query = () => {
-  getList({}).then((res: any) => {
-    queryData = res.data
+  getList({pageIndex: 1, pageSize: 10}).then((res: any) => {
+    console.log('resp: ', res)
+    dataSource.data = res.data
+    dataSource.total = res.total
   })
 }
 
