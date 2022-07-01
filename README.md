@@ -14,5 +14,5 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 ```javascript
 nvm ls // 查看所有nde版本
-nvm use 14.0.4 // 使用指定node版本
+nvm use 14.0.0 // 使用指定node版本
 ```
