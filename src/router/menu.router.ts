@@ -63,6 +63,15 @@ export const menuRouter = [
         },
         component: () => import('/src/views/demo/demo1.vue')
       },
+      { 
+        path: '/debounce',
+        name: 'debounce',
+        meta: {
+          title: '防抖',
+          icon: 'icon-HRDCkehuxiaoshouzhongxin',
+        },
+        component: () => import('/src/views/demo/debounce.vue')
+      },
     ]
   }
 ]
