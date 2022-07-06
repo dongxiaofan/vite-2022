@@ -72,6 +72,15 @@ export const menuRouter = [
         },
         component: () => import('/src/views/demo/debounce.vue')
       },
+      { 
+        path: '/throttle',
+        name: 'throttle',
+        meta: {
+          title: '节流',
+          icon: 'icon-HRDCkehuxiaoshouzhongxin',
+        },
+        component: () => import('/src/views/demo/throttle.vue')
+      },
     ]
   }
 ]
